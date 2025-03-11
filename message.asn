@@ -1,0 +1,23 @@
+BasicSafetyMessage DEFINITIONS ::= BEGIN
+
+Uint8 ::= INTEGER (0..255)
+
+Position ::= SEQUENCE {
+    latitude    INTEGER (-900000000..900000000),
+    longitude   INTEGER (-1800000000..1800000000),
+    elevation   INTEGER (-1000..10000)
+}
+
+VehicleInformation ::= SEQUENCE {
+    speed      INTEGER (0..255),
+    heading    INTEGER (0..360),
+    direction  BOOLEAN
+}
+
+BasicSafetyMessage ::= SEQUENCE {
+    protocolVersion    Uint8,
+    position           Position,
+    vehicleInfo        VehicleInformation
+}
+
+END
